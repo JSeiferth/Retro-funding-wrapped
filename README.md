@@ -12,6 +12,24 @@ A beautiful, interactive Spotify Wrapped-style experience showcasing builder imp
 - **Configurable Data**: Easy customization through configuration system
 - **Shareable Graphics**: Instagram/Twitter-ready summary card
 
+## 📱 Optimized Experience Flow
+
+The slide order is designed to tell a compelling story:
+
+1. **Welcome** - Personal introduction and setup
+2. **Transactions** - Immediate impact demonstration 
+3. **Top Projects** - Social proof through featured partners
+4. **Extended Projects** - Comprehensive ecosystem showcase
+5. **OP Tokens** - Monetary reward revelation (climax moment)
+6. **Gas & Impact** - Additional impact metrics
+7. **Final Summary** - Shareable social media card
+
+This flow maximizes engagement by:
+- Leading with usage impact (transactions)
+- Building excitement through project showcases  
+- Revealing rewards as the climactic moment
+- Ending with a shareable summary
+
 ## 🏗️ Architecture
 
 ### Core Components
@@ -300,35 +318,35 @@ npm run preview
 - Personalized greeting
 - Call-to-action
 
-### 2. Tokens Slide (`tokens`) 
-- OP token rewards
-- Achievement percentage
-- Celebration animation
-
-### 3. Transactions Slide (`transactions`)
+### 2. Transactions Slide (`transactions`)
 - Monthly transaction chart
 - Peak month highlighting
 - Interactive bar visualization
 
-### 4. Gas Slide (`gas`)
+### 3. Top Projects Slide (`projects`)
+- 3 featured projects
+- Project icons
+- Project descriptions
+
+### 4. Extended Projects Slide (`extended-projects`)
+- 18+ project grid
+- Category classification
+- Comprehensive ecosystem view
+
+### 5. Tokens Slide (`tokens`) 
+- OP token rewards
+- Achievement percentage
+- Celebration animation
+
+### 6. Gas Slide (`gas`)
 - ETH gas consumption
 - USD value conversion
 - Impact description
 
-### 5. Impact Slide (`impact`)
+### 7. Impact Slide (`impact`)
 - TVL metrics
 - Unique addresses
 - Ecosystem contribution
-
-### 6. Top Projects Slide (`projects`)
-- 3 featured projects
-- Project icons
-- Enrollment status
-
-### 7. Extended Projects Slide (`extended-projects`)
-- 27+ project grid
-- Category classification
-- Comprehensive ecosystem view
 
 ### 8. Share Slide (`share`)
 - Shareable summary card

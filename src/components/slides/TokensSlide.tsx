@@ -24,9 +24,6 @@ const TokensSlide: React.FC<SlideProps> = ({ slide }) => {
           style={{animationDelay: '1s'}}
         />
       </div>
-      <p className="text-base sm:text-lg text-white/90 mb-4 max-w-lg leading-relaxed px-4 animate-slide-in-up" style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
-        {slide.description}
-      </p>
       <p className="text-sm sm:text-base text-white/80 max-w-md leading-relaxed px-4 animate-slide-in-up" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
         {slide.subtitle}
       </p>

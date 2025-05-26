@@ -15,7 +15,7 @@ export interface ChartData {
   }
   
   export interface SlideData {
-    type: 'welcome' | 'tokens' | 'transactions' | 'gas' | 'impact' | 'projects' | 'extended-projects' | 'share';
+    type: 'welcome' | 'tokens' | 'transactions' | 'projects' | 'extended-projects' | 'share';
     title: string;
     subtitle?: string;
     action?: string;

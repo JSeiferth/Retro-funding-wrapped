@@ -41,14 +41,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
             <div className="text-lg font-black text-gradient">20K</div>
             <div className="text-xs text-white/75 font-medium">Transactions</div>
           </div>
-          <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.impact.tvl}</div>
-            <div className="text-xs text-white/75 font-medium">TVL</div>
-          </div>
-          <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.impact.addresses}</div>
-            <div className="text-xs text-white/75 font-medium">Addresses</div>
-          </div>
         </div>
         
         {/* Top 3 projects with better structure */}
@@ -76,17 +68,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
                 <span className="text-xs font-semibold text-white flex-1 text-left">{project.name}</span>
               </div>
             ))}
-          </div>
-        </div>
-        
-        {/* Footer with better structure */}
-        <div className="text-center border-t border-white/20 pt-4">
-          <p className="text-xs text-white/75 mb-3 font-medium">
-            +18 more projects building with my tools
-          </p>
-          
-          <div className="text-xs text-white/60 font-medium">
-            #OptimismRetroPGF • #BuildOnOptimism
           </div>
         </div>
       </div>

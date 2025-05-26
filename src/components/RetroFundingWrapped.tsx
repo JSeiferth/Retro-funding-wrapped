@@ -5,8 +5,6 @@ import { generateSlides, defaultConfig, AppConfig } from '../config';
 import WelcomeSlide from './slides/WelcomeSlide';
 import TokensSlide from './slides/TokensSlide';
 import TransactionsSlide from './slides/TransactionsSlide';
-import GasSlide from './slides/GasSlide';
-import ImpactSlide from './slides/ImpactSlide';
 import TopProjectsSlide from './slides/TopProjectsSlide';
 import ExtendedProjectsSlide from './slides/ExtendedProjectsSlide';
 import ShareSlide from './slides/ShareSlide';
@@ -99,10 +97,6 @@ const RetroFundingWrapped: React.FC<RetroFundingWrappedProps> = ({
         return <TokensSlide slide={slide} />;
       case 'transactions':
         return <TransactionsSlide slide={slide} />;
-      case 'gas':
-        return <GasSlide slide={slide} />;
-      case 'impact':
-        return <ImpactSlide slide={slide} />;
       case 'projects':
         return <TopProjectsSlide slide={slide} />;
       case 'extended-projects':
