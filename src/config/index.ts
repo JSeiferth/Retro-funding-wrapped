@@ -47,6 +47,7 @@ export const defaultConfig: AppConfig = {
   metrics: {
     tokens: {
       value: "1,264",
+      description: " ",
       subtitle: "These rewards recognize your contribution to the Optimism ecosystem."
     },
     transactions: {
