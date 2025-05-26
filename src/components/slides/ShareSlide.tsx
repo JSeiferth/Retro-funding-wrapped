@@ -11,31 +11,31 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         {/* Header with better spacing */}
         <div className="mb-6 border-b border-white/20 pb-4">
           <h2 className="text-lg font-black text-gradient mb-1">
-            Retro Funding Wrapped
+            Optimism Retro Funding Wrapped
           </h2>
-          <p className="text-xs text-white/70 font-medium">2024 Builder Impact</p>
+          <p className="text-xs text-white/70 font-medium">2025 Builder Impact</p>
         </div>
         
         {/* Profile section with better structure */}
-        <div className="flex items-center space-x-4 mb-6 bg-white/10 rounded-2xl p-4">
-          <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/40">
+        <div className="flex items-center space-x-4 mb-6">
+          <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-white/40 shadow-lg">
             <img 
               src={defaultConfig.user.profileImage} 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="text-left">
-            <h3 className="text-base font-bold text-white">{defaultConfig.user.name}</h3>
-            <p className="text-xs text-white/75 font-medium">{defaultConfig.user.project}</p>
+          <div className="text-left flex-1">
+            <h3 className="text-lg font-black text-white drop-shadow-lg">{defaultConfig.user.name}</h3>
+            <p className="text-sm text-white/85 font-semibold">{defaultConfig.user.project}</p>
           </div>
         </div>
         
         {/* Stats grid with better structure */}
         <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.tokens.value}</div>
-            <div className="text-xs text-white/75 font-medium">OP Tokens</div>
+        <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
+            <div className="text-lg font-black text-gradient">200</div>
+            <div className="text-xs text-white/75 font-medium">Onchain Applications</div>
           </div>
           <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
             <div className="text-lg font-black text-gradient">20K</div>
@@ -47,11 +47,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-sm font-bold text-white/90">Top Projects</h4>
-            <img 
-              src="/sunny 2026.svg" 
-              alt="Sunny celebrating" 
-              className="w-6 h-6 animate-float opacity-80"
-            />
           </div>
           <div className="space-y-2">
             {slide.projects?.slice(0, 3).map((project, i) => (
@@ -68,6 +63,25 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
                 <span className="text-xs font-semibold text-white flex-1 text-left">{project.name}</span>
               </div>
             ))}
+          </div>
+        </div>
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-bold text-white/90">Rewards</h4>
+            <img 
+              src="/sunny 2026.svg" 
+              alt="Sunny celebrating" 
+              className="w-6 h-6 animate-float opacity-80"
+            />
+          </div>
+          <div className="space-y-2">
+          <div className="flex items-center justify-center space-x-2">
+            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+              <span className="text-red-500 font-black text-xs">OP</span>
+            </div>
+            <span className="text-white font-black text-lg">15,000</span>
+            <span className="text-white/90 text-sm font-medium">Earned</span>
+          </div>
           </div>
         </div>
       </div>
