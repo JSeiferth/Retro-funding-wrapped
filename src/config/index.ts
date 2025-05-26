@@ -52,9 +52,9 @@ export interface AppConfig {
 export const defaultConfig: AppConfig = {
   user: {
     name: "Jonas' Project",
-    project: "Dev Tooling Builder",
+    project: "Solidity library",
     profileImage: "/jonas.jpeg",
-    description: "Hey Jonas' Project, let's look back at your builder journey over the past 6 months!"
+    description: "Hey Jonas' Project, let's look back at your Retro Funding journey over the past 6 months!"
   },
   metrics: {
     tokens: {
@@ -90,9 +90,9 @@ export const defaultConfig: AppConfig = {
   },
   projects: {
     featured: [
-      { name: 'Synthetix', description: 'Enrolled in Retro Funding', icon: '/AnNwWdzS_400x400.jpg' },
-      { name: 'Aerodrome Finance', description: 'Enrolled in Retro Funding', icon: '/dcd0600f-d9bf-439e-9915-5922ea8e9655.webp' },
-      { name: 'Boost', description: 'Enrolled in Retro Funding', icon: '/2586.png' }
+      { name: 'Synthetix', description: 'decentralized perp dex', icon: '/AnNwWdzS_400x400.jpg' },
+      { name: 'Aerodrome Finance', description: 'decentralized exchange', icon: '/dcd0600f-d9bf-439e-9915-5922ea8e9655.webp' },
+      { name: 'Boost', description: 'Reward farming app', icon: '/2586.png' }
     ],
     extended: [
       { name: 'Velodrome', description: 'DeFi' },
@@ -115,19 +115,13 @@ export const defaultConfig: AppConfig = {
       { name: 'Hundred Finance', description: 'DeFi' },
       { name: 'Sonne Finance', description: 'DeFi' },
       { name: 'Exactly', description: 'DeFi' },
-      { name: 'Rubicon', description: 'DeFi' },
-      { name: 'OpenSea', description: 'NFT' },
-      { name: 'Quix', description: 'NFT' },
-      { name: 'Zonic', description: 'NFT' },
-      { name: 'Spice', description: 'NFT' },
-      { name: 'Delegate', description: 'NFT' },
-      { name: 'Agora', description: 'NFT' }
+      { name: 'Rubicon', description: 'DeFi' }
     ]
   },
   branding: {
     title: "Your Retro Funding Wrapped",
-    year: "2024",
-    hashtags: ["#OptimismRetroPGF", "#BuildOnOptimism"]
+    year: "2025",
+    hashtags: ["#Optimism"]
   }
 };
 
