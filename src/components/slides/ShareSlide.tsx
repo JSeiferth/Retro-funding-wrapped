@@ -20,21 +20,21 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         <div className="flex items-center space-x-4 mb-6 bg-white/10 rounded-2xl p-4">
           <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/40">
             <img 
-              src="/jonas.jpeg" 
+              src={defaultConfig.user.profileImage} 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="text-left">
-            <h3 className="text-base font-bold text-white">Jonas' Project</h3>
-            <p className="text-xs text-white/75 font-medium">Dev Tooling Builder</p>
+            <h3 className="text-base font-bold text-white">{defaultConfig.user.name}</h3>
+            <p className="text-xs text-white/75 font-medium">{defaultConfig.user.project}</p>
           </div>
         </div>
         
         {/* Stats grid with better structure */}
         <div className="grid grid-cols-2 gap-3 mb-6">
           <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">1,264</div>
+            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.tokens.value}</div>
             <div className="text-xs text-white/75 font-medium">OP Tokens</div>
           </div>
           <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
@@ -42,11 +42,11 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
             <div className="text-xs text-white/75 font-medium">Transactions</div>
           </div>
           <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">$24K</div>
+            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.impact.tvl}</div>
             <div className="text-xs text-white/75 font-medium">TVL</div>
           </div>
           <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">59</div>
+            <div className="text-lg font-black text-gradient">{defaultConfig.metrics.impact.addresses}</div>
             <div className="text-xs text-white/75 font-medium">Addresses</div>
           </div>
         </div>
