@@ -5,7 +5,7 @@ import { defaultConfig } from '../../config';
 const WelcomeSlide: React.FC<SlideProps> = ({ slide }) => {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center">
-      <div className="w-24 h-24 rounded-full bg-white/20 mb-8 overflow-hidden border-4 border-white/30 animate-scale-in animate-float">
+      <div className="w-24 h-24 rounded-full bg-white/20 mb-8 overflow-hidden border-4 border-white/30 animate-scale-in">
         <img 
           src={defaultConfig.user.profileImage} 
           alt="Profile" 

@@ -118,9 +118,9 @@ export const generateSlides = (config: AppConfig = defaultConfig): SlideData[] =
   },
   {
     type: 'projects',
-    title: "Top Projects Using Jonas' Project",
+    title: "Top Onchain apps Using Jonas' Project",
     projects: config.projects.featured,
-    description: 'These projects are building on your foundation!',
+    description: 'These applications are building on your foundation!',
     subtitle: 'Your tools are empowering a new generation of builders on Optimism.'
   },
   {
