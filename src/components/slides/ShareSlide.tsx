@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { toPng } from 'html-to-image';
 import { SlideProps } from '../../types';
 import { defaultConfig } from '../../config';
 import html2canvas from 'html2canvas';
