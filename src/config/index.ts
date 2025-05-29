@@ -22,12 +22,10 @@ export interface AppConfig {
   projects: {
     featured: Array<{
       name: string;
-      description: string;
       icon: string;
     }>;
     extended: Array<{
       name: string;
-      description: string;
     }>;
   };
   branding: {
@@ -66,32 +64,32 @@ export const defaultConfig: AppConfig = {
   },
   projects: {
     featured: [
-      { name: 'Synthetix', description: 'decentralized perp dex', icon: '/AnNwWdzS_400x400.jpg' },
-      { name: 'Aerodrome Finance', description: 'decentralized exchange', icon: '/dcd0600f-d9bf-439e-9915-5922ea8e9655.webp' },
-      { name: 'Boost', description: 'Reward farming app', icon: '/2586.png' }
+      { name: 'Synthetix', icon: '/AnNwWdzS_400x400.jpg' },
+      { name: 'Aerodrome Finance', icon: '/dcd0600f-d9bf-439e-9915-5922ea8e9655.webp' },
+      { name: 'Boost', icon: '/2586.png' }
     ],
     extended: [
-      { name: 'Velodrome', description: 'DeFi' },
-      { name: 'Lyra', description: 'DeFi' },
-      { name: 'Thales', description: 'DeFi' },
-      { name: 'Perpetual Protocol', description: 'DeFi' },
-      { name: 'Polynomial', description: 'DeFi' },
-      { name: 'Kwenta', description: 'DeFi' },
-      { name: 'Stargate Finance', description: 'DeFi' },
-      { name: 'Hop Protocol', description: 'Infrastructure' },
-      { name: 'Across Protocol', description: 'Infrastructure' },
-      { name: 'Chainlink', description: 'Infrastructure' },
-      { name: 'Synapse', description: 'Infrastructure' },
-      { name: 'Socket', description: 'Infrastructure' },
-      { name: 'Superchain Registry', description: 'Infrastructure' },
-      { name: 'Aave', description: 'DeFi' },
-      { name: 'Curve', description: 'DeFi' },
-      { name: 'dForce', description: 'DeFi' },
-      { name: 'Granary', description: 'DeFi' },
-      { name: 'Hundred Finance', description: 'DeFi' },
-      { name: 'Sonne Finance', description: 'DeFi' },
-      { name: 'Exactly', description: 'DeFi' },
-      { name: 'Rubicon', description: 'DeFi' }
+      { name: 'Velodrome' },
+      { name: 'Lyra' },
+      { name: 'Thales' },
+      { name: 'Perpetual Protocol' },
+      { name: 'Polynomial' },
+      { name: 'Kwenta' },
+      { name: 'Stargate Finance' },
+      { name: 'Hop Protocol' },
+      { name: 'Across Protocol' },
+      { name: 'Chainlink' },
+      { name: 'Synapse' },
+      { name: 'Socket' },
+      { name: 'Superchain Registry' },
+      { name: 'Aave' },
+      { name: 'Curve' },
+      { name: 'dForce' },
+      { name: 'Granary' },
+      { name: 'Hundred Finance' },
+      { name: 'Sonne Finance' },
+      { name: 'Exactly' },
+      { name: 'Rubicon' }
     ]
   },
   branding: {
@@ -101,7 +99,7 @@ export const defaultConfig: AppConfig = {
   }
 };
 
-// NEW: projectId argument added here
+// Generate slides with extra details passed along for the Share slide
 export const generateSlides = (config: AppConfig = defaultConfig, projectId: string = ''): SlideData[] => [
   {
     type: 'welcome',

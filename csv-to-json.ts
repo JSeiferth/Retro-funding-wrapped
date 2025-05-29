@@ -20,6 +20,27 @@ const safeParseArray = (input: string, projectName: string, fieldName: string) =
   }
 };
 
+// --- Load the logos.csv mapping ---
+const logosCsvPath = path.join(__dirname, 'logos.csv');
+const logosCsvContent = fs.readFileSync(logosCsvPath, 'utf-8');
+
+const logoRecords = parse(logosCsvContent, {
+  columns: true,
+  skip_empty_lines: true
+});
+
+// Build a lookup: op_atlas_id → { id, display_name, thumbnail_url }
+const logoLookup: Record<string, { id: string; display_name: string; thumbnail_url: string }> = {};
+logoRecords.forEach((record: any) => {
+  const id = safe(record['op_atlas_id']);
+  logoLookup[id] = {
+    id,
+    display_name: safe(record['display_name']),
+    thumbnail_url: safe(record['thumbnail_url']) || '/optimism-logo.svg'
+  };
+});
+
+// --- Process the wrappedData.csv ---
 const csvFilePath = path.join(__dirname, 'wrappedData.csv');
 const csvContent = fs.readFileSync(csvFilePath, 'utf-8');
 
@@ -38,15 +59,26 @@ const projectConfigs = records.map((record: any) => {
   const featuredRaw = safeParseArray(record['Top Users'], name, 'Top Users');
   const extendedRaw = safeParseArray(record['All Users'], name, 'All Users');
 
-  const featured = featuredRaw.map((projName: string) => ({
-    name: projName.trim(),
-    description: 'Optimism project',
-    icon: '/optimism-logo.svg'
-  }));
+  // Map featured IDs to display names + logos + ids
+  const featured = featuredRaw.map((id: string) => {
+    const mapped = logoLookup[id];
+    if (!mapped) {
+      console.warn(`⚠️ No logo mapping found for Top User ID: ${id}`);
+      return {
+        id,
+        name: id, // fallback to raw ID if no mapping
+        icon: '/optimism-logo.svg'
+      };
+    }
+    return {
+      id: mapped.id,
+      name: mapped.display_name,
+      icon: mapped.thumbnail_url
+    };
+  });
 
   const extended = extendedRaw.map((projName: string) => ({
-    name: projName.trim(),
-    description: 'DeFi'
+    name: projName.trim()
   }));
 
   return {

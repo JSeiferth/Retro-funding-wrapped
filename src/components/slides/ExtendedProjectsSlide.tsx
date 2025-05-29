@@ -30,9 +30,6 @@ const ExtendedProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
             <h3 className="text-xs sm:text-sm font-bold text-white mb-1 leading-tight">
               {project.name}
             </h3>
-            <p className="text-xs text-white/80 font-medium">
-              {project.description}
-            </p>
           </div>
         ))}
       </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SlideData } from '../types';
-import { AppConfig, defaultConfig, generateSlides } from '../config';
 import WelcomeSlide from './slides/WelcomeSlide';
 import TokensSlide from './slides/TokensSlide';
 import TransactionsSlide from './slides/TransactionsSlide';

@@ -56,7 +56,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
           </div>
           <div className="text-left flex-1">
             <h3 className="text-lg font-black text-white drop-shadow-lg">{slide.userName}</h3>
-            <p className="text-sm text-white/85 font-semibold">{slide.userProject}</p>
           </div>
         </div>
         

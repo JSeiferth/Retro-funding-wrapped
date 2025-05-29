@@ -10,10 +10,13 @@ const TopProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
       
       <div className="w-full max-w-lg space-y-6 mb-12">
         {slide.projects?.map((project, i) => (
-          <div 
+          <a
             key={i}
-            className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 animate-slide-in-up hover:bg-white/25 hover:scale-105 transition-all duration-300 metric-glow"
-            style={{animationDelay: `${0.2 + i * 0.15}s`, animationFillMode: 'both'}}
+            href={`https://atlas.optimism.io/project/${project.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 animate-slide-in-up hover:bg-white/25 hover:scale-105 transition-all duration-300 metric-glow"
+            style={{ animationDelay: `${0.2 + i * 0.15}s`, animationFillMode: 'both' }}
           >
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-lg bg-white/20 border-2 border-white/30 flex items-center justify-center overflow-hidden">
@@ -31,9 +34,6 @@ const TopProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
                 <h3 className="text-xl font-bold text-white mb-1">
                   {project.name}
                 </h3>
-                <p className="text-sm text-white/85 font-medium">
-                  {project.description}
-                </p>
               </div>
               <div className="text-white/60">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -41,11 +41,11 @@ const TopProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
       
-      <div className="text-center animate-slide-in-up" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
+      <div className="text-center animate-slide-in-up" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
         <p className="text-base sm:text-lg text-white/90 mb-4 px-4">
           {slide.description}
         </p>
