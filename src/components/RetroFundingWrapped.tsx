@@ -9,12 +9,10 @@ import ExtendedProjectsSlide from './slides/ExtendedProjectsSlide';
 import ShareSlide from './slides/ShareSlide';
 
 interface RetroFundingWrappedProps {
-  config?: AppConfig; // fallback default config, if needed
   slides: SlideData[]; // NEW: pass slides directly
 }
 
 const RetroFundingWrapped: React.FC<RetroFundingWrappedProps> = ({
-  config = defaultConfig,
   slides
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
