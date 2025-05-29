@@ -48,7 +48,7 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
       <div ref={cardRef} className="w-full max-w-sm bg-gradient-to-r from-[#E9F0F8] to-[#FEECED] rounded-3xl p-6 border border-gray-300 animate-scale-in shadow-2xl flex flex-col h-full">
         <div className="mb-6 border-b items-center border-gray-300 pb-4">
           <h2 className="text-lg font-black text-black mb-1">
-          Optimism Retro Funding Wrapped
+          Retro Funding Wrapped
           </h2>
           <p className="text-xs text-gray-700 font-medium"> 🛠️ Dev Tooling Impact</p>
         </div>
