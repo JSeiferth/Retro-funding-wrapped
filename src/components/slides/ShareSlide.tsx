@@ -68,7 +68,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
             <h3 className="text-base sm:text-lg font-bold text-black">
               {slide.userName}
             </h3>
-            <span className="text-sm text-gray-600">received</span>
           </div>
           <div className="flex items-center space-x-2">
             <span className="text-black font-black text-2xl sm:text-3xl">
@@ -120,8 +119,8 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
             ))}
           </div>
         </div>
-        <div className="fpx-6 py-4 border-t border-gray-200 flex items-center justify-between w-full"> 
-          <div className="w-16 h-16">
+        <div className="fpx-6 pt-4 border-t border-gray-200 flex items-center justify-between w-full"> 
+          <div className="w-16">
             <img src="/optimism.png" alt="Optimism Logo" className="w-full h-full object-contain" />
           </div>
           <span className="text-sm font-medium text-[#FF0420]">
