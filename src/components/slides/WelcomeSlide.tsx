@@ -7,7 +7,7 @@ const WelcomeSlide: React.FC<SlideProps> = ({ slide }) => {
     <div className="flex flex-col items-center justify-center h-full text-center">
       <div className="w-24 h-24 rounded-full bg-white/20 mb-8 overflow-hidden border-4 border-white/30 animate-scale-in">
         <img 
-          src={defaultConfig.user.profileImage} 
+          src={slide.profileImage || defaultConfig.user.profileImage} 
           alt="Profile" 
           className="w-full h-full object-cover"
         />

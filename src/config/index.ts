@@ -101,16 +101,18 @@ export const defaultConfig: AppConfig = {
   }
 };
 
-export const generateSlides = (config: AppConfig = defaultConfig): SlideData[] => [
+// NEW: projectId argument added here
+export const generateSlides = (config: AppConfig = defaultConfig, projectId: string = ''): SlideData[] => [
   {
     type: 'welcome',
     title: config.branding.title,
     subtitle: config.user.description,
-    action: 'Swipe to explore your impact'
+    action: 'Swipe to explore your impact',
+    profileImage: config.user.profileImage
   },
   {
     type: 'transactions',
-    title: "Onchain apps that used Jonas' Project generated",
+    title: `Onchain apps that used ${config.user.name} generated`,
     mainValue: config.metrics.transactions.value,
     unit: 'Transactions',
     chartData: config.metrics.transactions.chartData,
@@ -118,7 +120,7 @@ export const generateSlides = (config: AppConfig = defaultConfig): SlideData[] =
   },
   {
     type: 'projects',
-    title: "Top Onchain apps Using Jonas' Project",
+    title: `Top Onchain apps Using ${config.user.name}`,
     projects: config.projects.featured,
     description: 'These applications are building on your foundation!',
     subtitle: 'Your tools are empowering a new generation of builders on Optimism.'
@@ -131,7 +133,7 @@ export const generateSlides = (config: AppConfig = defaultConfig): SlideData[] =
   },
   {
     type: 'tokens',
-    title: "For your impact to the Optimism Collective, you've been rewarded with",
+    title: `For your impact to the Optimism Collective, you've been rewarded with`,
     mainValue: config.metrics.tokens.value,
     unit: 'OP Tokens',
     description: config.metrics.tokens.description,
@@ -142,6 +144,13 @@ export const generateSlides = (config: AppConfig = defaultConfig): SlideData[] =
     title: 'Share Your Impact',
     projects: config.projects.featured,
     description: `Your ${config.branding.year} Retro Funding impact`,
-    subtitle: 'Screenshot to share!'
+    subtitle: 'Screenshot to share!',
+    shareUrl: projectId ? `https://retro-funding-wrapped.vercel.app/${projectId}` : '',
+    profileImage: config.user.profileImage,
+    userName: config.user.name,
+    userProject: config.user.project,
+    transactionsValue: config.metrics.transactions.value,
+    tokensValue: config.metrics.tokens.value,
+    extendedProjects: config.projects.extended
   }
 ];
