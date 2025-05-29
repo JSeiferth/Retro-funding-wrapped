@@ -1,90 +1,112 @@
 import React, { useRef } from 'react';
 import { SlideProps } from '../../types';
-import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
 import { defaultConfig } from '../../config';
 
 const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = () => {
     if (cardRef.current) {
-      const oldBg = cardRef.current.style.backgroundImage;
-      const oldClasses = cardRef.current.className;
-
-      cardRef.current.style.backgroundImage =
-        'linear-gradient(135deg, #ff0420 0%, #ff2030 25%, #ff4050 50%, #ff1525 75%, #ff0420 100%)';
-      cardRef.current.className = oldClasses
-        .replace('bg-white/20', '')
-        .replace('backdrop-blur-sm', '');
-
-      setTimeout(() => {
-        html2canvas(cardRef.current!, { useCORS: true, scale: 2 }).then((canvas) => {
-          const link = document.createElement('a');
-          link.download = 'retro-funding-card.png';
-          link.href = canvas.toDataURL();
-          link.click();
-
-          cardRef.current!.style.backgroundImage = oldBg;
-          cardRef.current!.className = oldClasses;
-        });
-      }, 100);
+      const node = cardRef.current;
+  
+      const scale = 3; // ⬅️ Increase this for higher resolution (2–4 is typical)
+  
+      const style = {
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+        width: `${node.offsetWidth}px`,
+        height: `${node.offsetHeight}px`,
+      };
+  
+      domtoimage.toPng(node, {
+        width: node.offsetWidth * scale,
+        height: node.offsetHeight * scale,
+        style,
+      })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'retro-funding-card.png';
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((error) => {
+        console.error('❌ Error generating high-res image:', error);
+      });
     }
   };
 
   return (
     <div
-      ref={wrapperRef}
-      className="w-full h-full flex flex-col items-center justify-center px-4"
+      className="w-full h-full flex flex-col items-center justify-start px-4 pt-12" // add pt-12 for top space
     >
       <img 
-      src="/Phoenix.png"  // make sure the filename matches exactly!
-      alt="Ethers Phoenix"
-      className="absolute top-[-200px] right-[-500px] w-[10000px]  h-auto opacity-95 pointer-events-none transition-transform duration-700 ease-in-out"
+        src="/Phoenix.png"
+        alt="Ethers Phoenix"
+        className="absolute top-[-200px] right-[-500px] w-[10000px] h-auto opacity-95 pointer-events-none"
       />
-      <div ref={cardRef} className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 border border-white/30 max-w-sm w-full animate-scale-in metric-glow shadow-2xl">
-        
-        <div className="mb-6 border-b border-white/20 pb-4">
-          <h2 className="text-lg font-black text-gradient mb-1">
-            Optimism Retro Funding Wrapped
+      <div ref={cardRef} className="w-full max-w-sm bg-gradient-to-r from-[#E9F0F8] to-[#FEECED] rounded-3xl p-6 border border-gray-300 animate-scale-in shadow-2xl flex flex-col h-full">
+        <div className="mb-6 border-b items-center border-gray-300 pb-4">
+          <h2 className="text-lg font-black text-black mb-1">
+          Optimism Retro Funding Wrapped
           </h2>
-          <p className="text-xs text-white/70 font-medium"> 🛠️ Dev Tooling Impact</p>
+          <p className="text-xs text-gray-700 font-medium"> 🛠️ Dev Tooling Impact</p>
         </div>
         
-        <div className="flex items-center space-x-4 mb-6">
-          <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-white/40 shadow-lg">
-            <img 
-              src={slide.profileImage || defaultConfig.user.profileImage} 
-              alt="Profile" 
-              className="w-full h-full object-cover"
-            />
+        <div className="flex items-center mb-6 w-full">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-3 border-gray-400 shadow-lg mr-4 flex-shrink-0">
+          <img
+            src={slide.profileImage || defaultConfig.user.profileImage}
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Text block */}
+        <div className="flex flex-col justify-center">
+          <div className="flex items-center space-x-1">
+            <h3 className="text-base sm:text-lg font-bold text-black">
+              {slide.userName}
+            </h3>
+            <span className="text-sm text-gray-600">received</span>
           </div>
-          <div className="text-left flex-1">
-            <h3 className="text-lg font-black text-white drop-shadow-lg">{slide.userName}</h3>
+          <div className="flex items-center space-x-2">
+            <span className="text-black font-black text-2xl sm:text-3xl">
+              {slide.tokensValue}
+            </span>
+            <div className="w-6 h-6 rounded-full flex items-center justify-center">
+              <span className="text-red-500 font-black  ml-3 text-2xl sm:text-3xl">OP</span>
+            </div>
           </div>
         </div>
-        
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">
+      </div>
+        <div className="grid grid-cols-2 gap-3 mb-6 w-full">
+          <div className="bg-gray-100 rounded-xl p-3 text-center border border-gray-200 flex flex-col items-center">
+            <div className="text-lg font-black text-black">
               {slide.extendedProjects?.length || 0}
             </div>
-            <div className="text-xs text-white/75 font-medium">Onchain Applications</div>
+            <div className="text-xs text-gray-700 font-medium">
+              Onchain Applications
+            </div>
           </div>
-          <div className="bg-gradient-to-br from-white/15 to-white/5 rounded-xl p-3 text-center border border-white/20">
-            <div className="text-lg font-black text-gradient">{slide.transactionsValue}</div>
-            <div className="text-xs text-white/75 font-medium">Transactions</div>
+          <div className="bg-gray-100 rounded-xl p-3 text-center border border-gray-200 flex flex-col items-center">
+            <div className="text-lg font-black text-black">
+              {slide.transactionsValue}
+            </div>
+            <div className="text-xs text-gray-700 font-medium">
+              Transactions
+            </div>
           </div>
         </div>
         
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
-            <h4 className="text-sm font-bold text-white/90">Top Users</h4>
+            <h4 className="text-sm font-bold text-black">Top Users</h4>
           </div>
           <div className="space-y-2">
             {slide.projects?.slice(0, 3).map((project, i) => (
-              <div key={i} className="flex items-center space-x-3 bg-white/10 rounded-xl p-2.5 border border-white/15">
-                <div className="w-7 h-7 rounded-lg bg-white/20 border border-white/30 flex items-center justify-center overflow-hidden">
+              <div key={i} className="flex items-center space-x-3 bg-gray-100 rounded-xl p-2.5 border border-gray-200">
+                <div className="w-7 h-7 rounded-lg bg-gray-200 border border-gray-300 flex items-center justify-center overflow-hidden">
                   {project.icon && (
                     <img 
                       src={project.icon} 
@@ -93,30 +115,18 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
                     />
                   )}
                 </div>
-                <span className="text-xs font-semibold text-white flex-1 text-left">{project.name}</span>
+                <span className="text-xs font-semibold text-black flex-1 text-left">{project.name}</span>
               </div>
             ))}
           </div>
         </div>
-        
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <h4 className="text-sm font-bold text-white/90">Rewards</h4>
-            <img 
-              src="/sunny 2026.svg" 
-              alt="Sunny celebrating" 
-              className="w-6 h-6 animate-float opacity-80"
-            />
+        <div className="fpx-6 py-4 border-t border-gray-200 flex items-center justify-between w-full"> 
+          <div className="w-16 h-16">
+            <img src="/optimism.png" alt="Optimism Logo" className="w-full h-full object-contain" />
           </div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-center space-x-2">
-              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                <span className="text-red-500 font-black text-xs">OP</span>
-              </div>
-              <span className="text-white font-black text-lg">{slide.tokensValue}</span>
-              <span className="text-white/90 text-sm font-medium">Earned</span>
-            </div>
-          </div>
+          <span className="text-sm font-medium text-[#FF0420]">
+            atlas.optimism.io
+          </span>
         </div>
       </div>
       

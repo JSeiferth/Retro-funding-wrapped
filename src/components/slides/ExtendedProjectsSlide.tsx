@@ -13,21 +13,14 @@ const ExtendedProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
         </p>
       </div>
       
-      {/* OP Logo */}
-      <div className="absolute top-4 left-4 opacity-20">
-        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-          <span className="text-white font-bold text-xs">OP</span>
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-4xl w-full flex-1 overflow-y-auto animate-slide-in-up" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-4xl w-full flex-1 overflow-y-auto animate-slide-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
         {slide.extendedProjects?.map((project, i) => (
-          <div 
+          <div
             key={i}
-            className="bg-white/15 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20 animate-scale-in hover:bg-white/20 transition-all duration-300 h-fit"
-            style={{animationDelay: `${0.3 + (i * 0.02)}s`, animationFillMode: 'both'}}
+            className="bg-white/15 backdrop-blur-sm rounded-lg p-3 border border-white/20 animate-scale-in hover:bg-white/20 transition-all duration-300 flex items-center justify-center min-h-[60px]"
+            style={{ animationDelay: `${0.3 + i * 0.02}s`, animationFillMode: 'both' }}
           >
-            <h3 className="text-xs sm:text-sm font-bold text-white mb-1 leading-tight">
+            <h3 className="text-xs sm:text-sm font-bold text-white text-center leading-tight truncate">
               {project.name}
             </h3>
           </div>
