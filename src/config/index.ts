@@ -46,7 +46,7 @@ export const defaultConfig: AppConfig = {
     tokens: {
       value: "1,264",
       description: " ",
-      subtitle: "These rewards recognize your contribution to the Optimism ecosystem."
+      subtitle: "These rewards recognize your contribution to the Superchain."
     },
     transactions: {
       value: "20,000+",

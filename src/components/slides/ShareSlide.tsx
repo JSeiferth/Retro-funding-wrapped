@@ -129,9 +129,6 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         </div>
       </div>
       
-      <p className="text-sm text-white/80 mt-4 animate-slide-in-up font-medium" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-        📸 Screenshot this to share your impact!
-      </p>
       <button
         onClick={handleDownload}
         className="mt-2 px-4 py-2 bg-white text-red-600 rounded-lg font-bold shadow hover:bg-red-100"
