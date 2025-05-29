@@ -38,7 +38,7 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
 
   return (
     <div
-      className="w-full h-full flex flex-col items-center justify-start px-4 pt-12" // add pt-12 for top space
+      className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-6 pb-20 sm:pb-10 relative" // add pt-12 for top space
     >
       <img 
         src="/Phoenix.png"
@@ -129,11 +129,12 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         </div>
       </div>
       
+
       <button
         onClick={handleDownload}
         className="mt-2 px-4 py-2 bg-white text-red-600 rounded-lg font-bold shadow hover:bg-red-100"
       >
-        Download Card Image
+        Download Image
       </button>
     </div>
   );
