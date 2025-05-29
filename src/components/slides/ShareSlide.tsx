@@ -24,13 +24,13 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
         height: node.offsetHeight * scale,
         style,
       })
-      .then((dataUrl) => {
+      .then((dataUrl: string) => {
         const link = document.createElement('a');
         link.download = 'retro-funding-card.png';
         link.href = dataUrl;
         link.click();
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error('❌ Error generating high-res image:', error);
       });
     }
