@@ -30,7 +30,7 @@ const ProjectPage: React.FC = () => {
   // Generate the slides with the project config and projectId
   const slides = generateSlides(projectConfig, projectId || '');
 
-  return <RetroFundingWrapped config={projectConfig} slides={slides} />;
+  return <RetroFundingWrapped slides={slides} />;
 };
 
 export default ProjectPage;
