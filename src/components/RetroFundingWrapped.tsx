@@ -7,6 +7,8 @@ import TransactionsSlide from './slides/TransactionsSlide';
 import TopProjectsSlide from './slides/TopProjectsSlide';
 import ExtendedProjectsSlide from './slides/ExtendedProjectsSlide';
 import ShareSlide from './slides/ShareSlide';
+import SlideAudioController from './SlideAudioController';
+
 
 interface RetroFundingWrappedProps {
   slides: SlideData[]; // NEW: pass slides directly
@@ -117,6 +119,9 @@ const RetroFundingWrapped: React.FC<RetroFundingWrappedProps> = ({
       tabIndex={0}
       style={{ outline: 'none' }}
     >
+      <SlideAudioController currentSlide={currentSlide} slides={slides} />
+
+      
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-white/30 animate-pulse-slow"></div>
         <div className="absolute bottom-32 right-16 w-24 h-24 rounded-full bg-white/25 animate-float"></div>

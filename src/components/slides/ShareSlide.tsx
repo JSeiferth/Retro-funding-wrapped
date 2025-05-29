@@ -37,6 +37,11 @@ const ShareSlide: React.FC<SlideProps> = ({ slide }) => {
       ref={wrapperRef}
       className="w-full h-full flex flex-col items-center justify-center px-4"
     >
+      <img 
+      src="/Phoenix.png"  // make sure the filename matches exactly!
+      alt="Ethers Phoenix"
+      className="absolute top-[-200px] right-[-500px] w-[10000px]  h-auto opacity-95 pointer-events-none transition-transform duration-700 ease-in-out"
+      />
       <div ref={cardRef} className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 border border-white/30 max-w-sm w-full animate-scale-in metric-glow shadow-2xl">
         
         <div className="mb-6 border-b border-white/20 pb-4">

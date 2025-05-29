@@ -4,10 +4,12 @@ import { SlideProps } from '../../types';
 const TopProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center">
-      <h2 className="text-2xl sm:text-3xl font-black text-gradient mb-12 animate-slide-in-up px-4 tracking-tight">
+      <h2 className="text-2xl sm:text-3xl font-black text-gradient mb-4 animate-slide-in-up px-4 tracking-tight">
         {slide.title}
       </h2>
-      
+      <p className="text-base sm:text-lg text-white/90 mb-12 px-4">
+          {slide.description}
+        </p>
       <div className="w-full max-w-lg space-y-6 mb-12">
         {slide.projects?.map((project, i) => (
           <a
@@ -46,12 +48,6 @@ const TopProjectsSlide: React.FC<SlideProps> = ({ slide }) => {
       </div>
       
       <div className="text-center animate-slide-in-up" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
-        <p className="text-base sm:text-lg text-white/90 mb-4 px-4">
-          {slide.description}
-        </p>
-        <p className="text-sm sm:text-base text-white/80 px-4 max-w-lg">
-          {slide.subtitle}
-        </p>
       </div>
     </div>
   );

@@ -121,12 +121,11 @@ export const generateSlides = (config: AppConfig = defaultConfig, projectId: str
     title: `Top Onchain apps Using ${config.user.name}`,
     projects: config.projects.featured,
     description: 'These applications are building on your foundation!',
-    subtitle: 'Your tools are empowering a new generation of builders on Optimism.'
   },
   {
     type: 'extended-projects',
     title: 'But there are many more...',
-    subtitle: 'Your tools are helping a vast ecosystem of projects build on Optimism',
+    subtitle: 'Your tools are empowering a new generation of builders on Optimism.',
     extendedProjects: config.projects.extended
   },
   {

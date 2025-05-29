@@ -52,7 +52,7 @@ const records = parse(csvContent, {
 const projectConfigs = records.map((record: any) => {
   const projectId = safe(record['ProjectID']);
   const name = safe(record['Project name']);
-  const totalRewards = parseFloat(record['OP Amount'] || 0).toLocaleString();
+  const totalRewards = Math.round(parseFloat(record['OP Amount'] || 0)).toLocaleString();
   const transactions = parseInt(record['Total downstream TXs'] || 0).toLocaleString();
   const logo = safe(record['Logo']);
 
